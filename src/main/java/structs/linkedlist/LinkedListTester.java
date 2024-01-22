@@ -22,14 +22,14 @@ public class LinkedListTester {
         System.out.println("Size: " + linkedList.size());
         System.out.println("=====================");
 
-        linkedList.remove(0);
-        linkedList.remove(10);
-        linkedList.remove(4);
-        linkedList.remove(1);
-        linkedList.remove(1);
-        linkedList.remove(0);
-        linkedList.remove(0);
-        linkedList.remove(0);
+        System.out.println(linkedList.pull(0));
+        System.out.println(linkedList.pull(10));
+        System.out.println(linkedList.pull(4));
+        System.out.println(linkedList.pull(1));
+        System.out.println(linkedList.pull(1));
+        System.out.println(linkedList.pull(0));
+        System.out.println(linkedList.pull(0));
+        System.out.println(linkedList.pull(0));
 
         System.out.println(linkedList);
         System.out.println("Size: " + linkedList.size());
