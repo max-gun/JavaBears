@@ -5,6 +5,7 @@ public class LinkedList {
     LinkedListNode head;
 
     public LinkedList() {
+        System.out.println("A linked list was created!!!");
     }
 
     public void linearAdd(String data) {
@@ -77,15 +78,27 @@ public class LinkedList {
     }
 
     public void remove(int idx) {
-        if (idx < size()) {
+        pull(idx);
+    }
+
+    public LinkedListNode pull(int idx) {
+        LinkedListNode pulledNode = null;
+
+        if (idx >= 0 && idx < size()) {
             if (idx == 0) {
+                pulledNode = head;
                 head = head.getNext();
             }
             else {
                 LinkedListNode prevNode = getNode(idx - 1);
+                pulledNode = prevNode.getNext();
                 prevNode.setNext(prevNode.getNext().getNext());
             }
+
+            pulledNode.setNext(null);
         }
+
+        return pulledNode;
     }
 
     public String linearPrint() {
