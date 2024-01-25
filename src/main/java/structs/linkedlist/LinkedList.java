@@ -81,6 +81,7 @@ public class LinkedList {
     }
 
     public void remove(int idx) {
+
         pullNode(idx);
     }
 
