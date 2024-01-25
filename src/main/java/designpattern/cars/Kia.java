@@ -1,4 +1,4 @@
-package designpattern;
+package designpattern.cars;
 
 public class Kia implements Car {
     @Override

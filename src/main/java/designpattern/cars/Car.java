@@ -1,6 +1,5 @@
-package designpattern;
+package designpattern.cars;
 
 public interface Car {
-    Car manufacture();
     String drive();
 }

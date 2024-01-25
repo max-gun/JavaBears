@@ -1,4 +1,4 @@
-package designpattern;
+package designpattern.factory;
 
 public enum CarModel {
     HONDA,

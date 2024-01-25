@@ -1,6 +1,8 @@
-package designpattern;
+package designpattern.factory;
 
-import static designpattern.CarModel.*;
+import designpattern.cars.Car;
+
+import static designpattern.factory.CarModel.*;
 
 public class CarDealer {
 
