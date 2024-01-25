@@ -1,2 +1,13 @@
-package designpattern;public class Dodge {
+package designpattern;
+
+public class Dodge implements Car {
+    @Override
+    public Car manufacture() {
+        return new Dodge();
+    }
+
+    @Override
+    public String drive() {
+        return "Dodge is driving";
+    }
 }

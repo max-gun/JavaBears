@@ -1,2 +1,6 @@
-package designpattern;public interface Car {
+package designpattern;
+
+public interface Car {
+    Car manufacture();
+    String drive();
 }

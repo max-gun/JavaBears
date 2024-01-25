@@ -1,10 +1,14 @@
 package structs.linkedlist;
 
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+
 public class LinkedList {
 
     LinkedListNode head;
 
     public LinkedList() {
+        System.out.println("A linked list was created!!!");
     }
 
     public void linearAdd(String data) {
@@ -77,10 +81,10 @@ public class LinkedList {
     }
 
     public void remove(int idx) {
-        pull(idx);
+        pullNode(idx);
     }
 
-    public LinkedListNode pull(int idx) {
+    public LinkedListNode pullNode(int idx) {
         LinkedListNode pulledNode = null;
 
         if (idx >= 0 && idx < size()) {
@@ -98,6 +102,50 @@ public class LinkedList {
         }
 
         return pulledNode;
+    }
+
+    private boolean checkIndexes(int idx1, int idx2, int limit) {
+        return idx1 >=0 && idx1 < limit
+                && idx2 >=0 && idx2 < limit
+                && idx1 != idx2;
+    }
+    public void swapNodes(int idx1, int idx2) {
+        System.out.println("=====================");
+        System.out.println(this);
+        System.out.println("Size: " + size());
+        if (checkIndexes(idx1, idx2, size())) {
+            int maxIdx = max(idx1, idx2);
+            int minIdx = min(idx1, idx2);
+
+            LinkedListNode maxNode = pullNode(maxIdx);
+            System.out.println("=====================");
+            System.out.println("pullNode(maxIdx):");
+            System.out.println(maxNode);
+            System.out.println(this);
+            System.out.println("Size: " + size());
+
+            LinkedListNode minNode = pullNode(minIdx);
+            System.out.println("=====================");
+            System.out.println("pullNode(minIdx):");
+            System.out.println(maxNode);
+            System.out.println(minNode);
+            System.out.println(this);
+            System.out.println("Size: " + size());
+
+            add(maxNode.getData(), minIdx);
+            System.out.println("=====================");
+            System.out.println("add(maxNode.getData(), minIdx):");
+            System.out.println(minNode);
+            System.out.println(this);
+            System.out.println("Size: " + size());
+
+            add(minNode.getData(), maxIdx);
+            System.out.println("=====================");
+            System.out.println("add(minNode.getData(), maxIdx):");
+            System.out.println(maxNode);
+            System.out.println(this);
+            System.out.println("Size: " + size());
+        }
     }
 
     public String linearPrint() {
