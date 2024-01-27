@@ -1,4 +1,6 @@
-package designpatterns;
+package designpatterns.singleton;
+
+import designpatterns.builder.AsianBowl;
 
 public class SchoolTest {
     public static void main(String[] args) {

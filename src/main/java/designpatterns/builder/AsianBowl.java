@@ -1,4 +1,4 @@
-package designpatterns;
+package designpatterns.builder;
 
 public class AsianBowl {
 
