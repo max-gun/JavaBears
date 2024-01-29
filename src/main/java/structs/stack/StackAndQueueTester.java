@@ -3,23 +3,23 @@ package structs.stack;
 public class StackAndQueueTester {
 
     public static void main(String[] args) {
-        OurStack stack = new OurStack();
+        OurQueue queue = new OurQueue();
 
-        System.out.println("isEmpty? " + stack.isEmpty());
+        System.out.println("isEmpty? " + queue.isEmpty());
 
-        stack.push("Max");
-        stack.push("Alexey");
-        stack.push("Moran");
-        stack.push("Doron");
+        queue.enqueue("Max");
+        queue.enqueue("Alexey");
+        queue.enqueue("Moran");
+        queue.enqueue("Doron");
 
-        System.out.println("isEmpty? " + stack.isEmpty());
-        System.out.println("size: " + stack.size());
-        stack.print();
+        System.out.println("isEmpty? " + queue.isEmpty());
+        System.out.println("size: " + queue.size());
+        queue.print();
 
         System.out.println("===============");
-        System.out.println("Peek: " + stack.peek());
-        System.out.println("Pop: " + stack.pop());
-        System.out.println("size: " + stack.size());
-        stack.print();
+        System.out.println("Peek: " + queue.peek());
+        System.out.println("Pop: " + queue.dequeue());
+        System.out.println("size: " + queue.size());
+        queue.print();
     }
 }
