@@ -1,6 +1,6 @@
 package structs.stack;
 
-public class StackAndQueueTester {
+public class StackTester {
 
     public static void main(String[] args) {
         OurQueue queue = new OurQueue();

@@ -1,4 +1,4 @@
-package structs.stack;
+package structs.queue;
 
 import structs.linkedlist.LinkedList;
 import structs.linkedlist.LinkedListNode;
