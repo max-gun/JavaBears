@@ -46,6 +46,13 @@ public class LinkedListNode {
         return next.getIndexedNode(idx - 1);
     }
 
+    public void reversePrint() {
+        if (next != null) {
+            next.reversePrint();
+        }
+        System.out.print(data + " ");
+    }
+
     public String print() {
         if (next == null) {
             return this + "||}";

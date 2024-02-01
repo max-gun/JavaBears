@@ -59,9 +59,12 @@ public class LinkedListTester {
         System.out.println("Size: " + linkedList.size());
         System.out.println("=====================");
 
-        linkedList.sortWithComments();
+        linkedList.sort();
         System.out.println(linkedList);
         System.out.println("Size: " + linkedList.size());
         System.out.println("=====================");
+
+        System.out.println("REVERSE PRINTING");
+        linkedList.reversePrint();
     }
 }

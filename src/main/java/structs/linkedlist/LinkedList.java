@@ -216,6 +216,13 @@ public class LinkedList {
         return result;
     }
 
+    public void reversePrint() {
+        if (head != null) {
+            head.reversePrint();
+            System.out.println();
+        }
+    }
+
     public String print() {
         return "{" + (head == null ? "||}" : head.print());
     }
