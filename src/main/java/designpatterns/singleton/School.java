@@ -1,4 +1,4 @@
-package designpatterns;
+package designpatterns.singleton;
 
 import structs.linkedlist.LinkedList;
 

@@ -2,6 +2,7 @@ package structs.linkedlist;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
+import static java.util.Objects.nonNull;
 
 public class LinkedList {
 
@@ -77,7 +78,12 @@ public class LinkedList {
     }
 
     private LinkedListNode getNode(int idx) {
-        return head.getIndexedNode(idx);
+        return head == null ? null : head.getIndexedNode(idx);
+    }
+
+    public String get(int idx) {
+        LinkedListNode node = getNode(idx);
+        return nonNull(node) ? node.getData() : null;
     }
 
     public void remove(int idx) {
@@ -105,16 +111,29 @@ public class LinkedList {
         return pulledNode;
     }
 
-    private boolean checkIndexes(int idx1, int idx2, int limit) {
-        return idx1 >=0 && idx1 < limit
-                && idx2 >=0 && idx2 < limit
-                && idx1 != idx2;
+    private boolean checkIndexes(int idx1, int idx2) {
+        int limit = size();
+        return idx1 != idx2 && idx1 < limit && idx2 < limit && idx1 >= 0 && idx2 >= 0;
     }
+
+    public void swap(int idx1, int idx2) {
+        if (checkIndexes(idx1, idx2)) {
+            int maxIdx = max(idx1, idx2);
+            int minIdx = min(idx1, idx2);
+
+            LinkedListNode maxNode = pullNode(maxIdx);
+            LinkedListNode minNode = pullNode(minIdx);
+
+            add(maxNode.getData(), minIdx);
+            add(minNode.getData(), maxIdx);
+        }
+    }
+
     public void swapNodes(int idx1, int idx2) {
         System.out.println("=====================");
         System.out.println(this);
         System.out.println("Size: " + size());
-        if (checkIndexes(idx1, idx2, size())) {
+        if (checkIndexes(idx1, idx2)) {
             int maxIdx = max(idx1, idx2);
             int minIdx = min(idx1, idx2);
 
@@ -147,6 +166,38 @@ public class LinkedList {
             System.out.println(this);
             System.out.println("Size: " + size());
         }
+    }
+
+    public void sort() {
+        int size = size();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - (i + 1); j++) {
+                if (isLeftGreater(j, j+1)) {
+                    swap(j, j+1);
+                }
+            }
+        }
+    }
+
+    public void sortWithComments() {
+        int size = size();
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size - (i + 1); j++) {
+                if (isLeftGreater(j, j+1)) {
+                    swap(j, j+1);
+                }
+            }
+
+            System.out.println("Iteration: " + i);
+            System.out.println(this);
+            System.out.println("=====================");
+        }
+    }
+
+    private boolean isLeftGreater(int leftIdx, int rightIdx) {
+        String leftData = get(leftIdx);
+        String rightData = get(rightIdx);
+        return leftData.compareTo(rightData) > 0;
     }
 
     public String linearPrint() {
