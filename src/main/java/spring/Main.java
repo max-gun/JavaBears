@@ -3,7 +3,6 @@ package spring;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import spring.components.Dalmatian;
-import spring.components.Haski;
 import spring.components.HelloWorld;
 
 public class Main {
@@ -13,9 +12,10 @@ public class Main {
         helloWorld.sayHello();
 
         Dog rexi = context.getBean(Dalmatian.class);
-        Dog max = context.getBean(Haski.class);
+        rexi.setDogId(112);
+        System.out.println("dog id: " + rexi.getDogId());
 
-        System.out.println(rexi.bark());
-        System.out.println(max.bark());
+        Dog max = context.getBean(Dalmatian.class);
+        System.out.println("dog id: " + max.getDogId());
     }
 }

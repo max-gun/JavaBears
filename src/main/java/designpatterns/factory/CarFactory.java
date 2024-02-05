@@ -6,7 +6,9 @@ import designpatterns.creator.DodgeCreator;
 import designpatterns.creator.HondaCreator;
 import designpatterns.creator.KiaCreator;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 
 import static designpatterns.factory.CarModel.*;
