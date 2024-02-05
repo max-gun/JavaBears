@@ -1,9 +1,11 @@
 package spring.components;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import spring.Dog;
 
 @Component
+@Scope("singleton")
 public class Haski implements Dog {
 
     private int dogId;
