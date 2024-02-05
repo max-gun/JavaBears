@@ -2,6 +2,7 @@ package structs.tree;
 
 import java.util.Objects;
 
+import static java.lang.Math.max;
 import static java.util.Objects.nonNull;
 
 public class BinaryNode {
@@ -13,6 +14,10 @@ public class BinaryNode {
 
     public BinaryNode(String data) {
         this.data = data;
+    }
+
+    public int depth() {
+        return 1 + max((nonNull(left) ? left.depth() : 0), (nonNull(right) ? right.depth() : 0));
     }
 
     public int size() {

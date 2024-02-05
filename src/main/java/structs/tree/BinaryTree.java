@@ -6,14 +6,14 @@ import static java.util.Objects.isNull;
 
 public class BinaryTree {
 
-    private BinaryNode root;
+    BinaryNode root;
 
     public BinaryTree() {
 
     }
 
     public void add(String data) {
-        if (root == null) {
+        if (isNull(root)) {
             root = new BinaryNode(data);
         }
         else {
@@ -22,14 +22,10 @@ public class BinaryTree {
     }
 
     public int depth() {
-        return 0; //TODO: replace with your implementation!!!!
+        return isNull(root) ? 0 : root.depth();
     }
 
     public int size() {
-        if (isNull(root)) {
-            return 0;
-        }
-
-        return root.size();
+        return isNull(root) ? 0 : root.size();
     }
 }

@@ -168,7 +168,32 @@ public class LinkedList {
         }
     }
 
-    public void sort() {
+    public void insertionSort() {
+        int size = size();
+        for (int i = 0; i < size; i++) {
+            int j = i;
+            while (j != 0 && isLeftGreater(j-1, j)) {
+                swap(j-1, j);
+                j--;
+            }
+        }
+    }
+
+    public void insertionSortWithComments() {
+        int size = size();
+        for (int i = 0; i < size; i++) {
+            int j = i;
+            while (j != 0 && isLeftGreater(j-1, j)) {
+                swap(j-1, j);
+                j--;
+            }
+            System.out.println("Iteration: " + i);
+            System.out.println(this);
+            System.out.println("=====================");
+        }
+    }
+
+    public void bubbleSort() {
         int size = size();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size - (i + 1); j++) {
@@ -179,7 +204,7 @@ public class LinkedList {
         }
     }
 
-    public void sortWithComments() {
+    public void bubbleSortWithComments() {
         int size = size();
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size - (i + 1); j++) {

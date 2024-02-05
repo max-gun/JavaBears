@@ -59,7 +59,8 @@ public class LinkedListTester {
         System.out.println("Size: " + linkedList.size());
         System.out.println("=====================");
 
-        linkedList.sort();
+        linkedList.insertionSortWithComments();
+        System.out.println("After Sort:");
         System.out.println(linkedList);
         System.out.println("Size: " + linkedList.size());
         System.out.println("=====================");
