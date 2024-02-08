@@ -4,7 +4,7 @@ import structs.linkedlist.LinkedList;
 
 public class School {
 
-    private static School THE_SCHOOL; // Eager!!
+    private static School THE_SCHOOL = new School(); // Eager!!
     LinkedList studentList = new LinkedList(); // on construction, before constructor commands!
 
     static {

@@ -4,6 +4,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 import spring.Dog;
 
+import java.lang.ref.PhantomReference;
+
 @Component
 @Scope("prototype")
 public class Dalmatian implements Dog {
