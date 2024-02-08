@@ -19,5 +19,6 @@ public class Main {
 
         HelloWorld hw = context.getBean(HelloWorld.class);
         System.out.println(hw.getName());
+        System.out.println(hw.getAge());
     }
 }
