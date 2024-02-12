@@ -1,8 +1,10 @@
 package structs.linkedlist;
 
+import java.util.Objects;
+
 import static java.lang.Math.max;
 import static java.lang.Math.min;
-import static java.util.Objects.nonNull;
+import static java.util.Objects.*;
 
 public class LinkedList {
 
@@ -10,6 +12,46 @@ public class LinkedList {
 
     public LinkedList() {
         System.out.println("A linked list was created!!!");
+    }
+
+    public static LinkedList merge(LinkedList leftList, LinkedList rightList) {
+        if (isNull(leftList) || leftList.isEmpty())
+            return rightList;
+
+        if (isNull(rightList) || rightList.isEmpty())
+            return leftList;
+
+        LinkedList mergedList = new LinkedList();
+
+        LinkedListNode leftListNode = leftList.pullNode(0);
+        LinkedListNode rightListNode = rightList.pullNode(0);
+
+        while (nonNull(leftListNode) && nonNull(rightListNode)) {
+            if (leftListNode.getData().compareTo(rightListNode.getData()) > 0) {
+                mergedList.add(rightListNode.getData());
+                rightListNode = rightList.pullNode(0);
+            }
+            else {
+                mergedList.add(leftListNode.getData());
+                leftListNode = leftList.pullNode(0);
+            }
+        }
+        mergedList.append(leftList.isEmpty() ? rightList : leftList);
+
+        return mergedList;
+    }
+
+    public void append(LinkedList other) {
+        if (isEmpty()) {
+            head = other.head;
+        }
+        else {
+            requireNonNull(getLastNode()).setNext(other.head);
+        }
+    }
+
+    private boolean isEmpty() {
+        return head == null;
     }
 
     public void linearAdd(String data) {
@@ -75,6 +117,19 @@ public class LinkedList {
             iterator = iterator.getNext();
         }
         return iterator;
+    }
+
+    private LinkedListNode getLastNode() {
+        if (isNull(head)) {
+            return null;
+        }
+
+        LinkedListNode node = head;
+        while (nonNull(node.getNext())) {
+            node = node.getNext();
+        }
+
+        return node;
     }
 
     private LinkedListNode getNode(int idx) {
