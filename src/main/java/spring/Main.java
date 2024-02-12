@@ -20,5 +20,16 @@ public class Main {
         HelloWorld hw = context.getBean(HelloWorld.class);
         System.out.println(hw.getName());
         System.out.println(hw.getAge());
+        System.out.println("########################");
+
+        Bone bone = context.getBean(Bone.class);
+        bone.setShape("long");
+        bone.printShape();
+
+        Bone anotherBone = (Bone) context.getBean("kosta");
+        anotherBone.printShape();
+
+        Bone yetAnotherBone = (Bone) context.getBean("etzem");
+        yetAnotherBone.printShape();
     }
 }
