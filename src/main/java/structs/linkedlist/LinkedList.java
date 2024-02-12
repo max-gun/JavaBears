@@ -1,11 +1,24 @@
 package structs.linkedlist;
 
-import java.util.Objects;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 import static java.util.Objects.*;
 
+
+/**
+ * <b><i><u>Description:</u></i></b><br/>
+ * <p>
+ * A <b>linked list</b> class, contains nodes.
+ * </p>
+ * <p>
+ *     This is another paragraph...
+ * </p>
+ *
+ * @author Max Gun
+ * @since 12.02.2024
+ * @version 1.0.0
+ */
 public class LinkedList {
 
     LinkedListNode head;
@@ -14,6 +27,15 @@ public class LinkedList {
         System.out.println("A linked list was created!!!");
     }
 
+    /**
+     *
+     * @param leftList a sorted list
+     * @param rightList another sorted list
+     *
+     * @return a sorted merged {@link structs.linkedlist}
+     *
+     * @exception NullPointerException
+     */
     public static LinkedList merge(LinkedList leftList, LinkedList rightList) {
         if (isNull(leftList) || leftList.isEmpty())
             return rightList;
