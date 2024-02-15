@@ -1,6 +1,7 @@
 package springs.bootcamp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springs.bootcamp.service.StudentsService;
@@ -13,8 +14,9 @@ public class StudentsController {
     @Autowired
     StudentsService studentsService;
 
-    public Integer isStudentExist(String name){
-
+    @RequestMapping(value="/isRegistered/{studentName}")
+    public Boolean isStudentExist(@PathVariable("studentName") String name){
+        return studentsService.isExist(name);
     }
 
     @RequestMapping("/countStudents")
