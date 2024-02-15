@@ -1,11 +1,9 @@
-package spring;
+package springs.spring;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import spring.components.Dalmatian;
-import spring.components.Haski;
-import spring.components.HelloWorld;
-import spring.components.Kennel;
+import springs.spring.components.HelloWorld;
+import springs.spring.components.Kennel;
 
 public class Main {
     public static void main(String[] args) {

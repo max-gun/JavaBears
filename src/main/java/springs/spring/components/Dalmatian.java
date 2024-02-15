@@ -1,17 +1,18 @@
-package spring.components;
+package springs.spring.components;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import spring.Dog;
+import springs.spring.Dog;
 
 @Component
-@Scope("singleton")
-public class Haski implements Dog {
+@Scope("prototype")
+public class Dalmatian implements Dog {
 
     private int dogId;
+
     @Override
     public String bark() {
-        return "Hau Hau!!!";
+        return "Woof!!!";
     }
 
     public int getDogId() {

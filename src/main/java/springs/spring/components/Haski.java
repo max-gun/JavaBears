@@ -1,20 +1,17 @@
-package spring.components;
+package springs.spring.components;
 
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import spring.Dog;
-
-import java.lang.ref.PhantomReference;
+import springs.spring.Dog;
 
 @Component
-@Scope("prototype")
-public class Dalmatian implements Dog {
+@Scope("singleton")
+public class Haski implements Dog {
 
     private int dogId;
-
     @Override
     public String bark() {
-        return "Woof!!!";
+        return "Hau Hau!!!";
     }
 
     public int getDogId() {

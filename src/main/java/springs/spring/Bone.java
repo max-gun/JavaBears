@@ -1,4 +1,4 @@
-package spring;
+package springs.spring;
 
 public class Bone {
 

@@ -1,4 +1,4 @@
-package Springfields;
+package springs.Springfields;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

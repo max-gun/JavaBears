@@ -1,4 +1,4 @@
-package Springfields;
+package springs.Springfields;
 
 
 import org.springframework.context.ApplicationContext;

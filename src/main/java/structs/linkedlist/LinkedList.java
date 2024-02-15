@@ -63,6 +63,28 @@ public class LinkedList {
         return mergedList;
     }
 
+    public LinkedList subList(int from, int to) {
+        LinkedList resultList = new LinkedList();
+
+        if (from < 0) from = 0;
+        if (from >= to || isEmpty()) {
+            return resultList;
+        }
+
+        LinkedListNode iterator = head;
+        for (int i = 0; i < from; i++) {
+            iterator = iterator.getNext();
+        }
+
+        int size = size();
+        for (int i = from; i < to && i < size; i++) {
+            resultList.add(iterator.getData());
+            iterator = iterator.getNext();
+        }
+
+        return resultList;
+    }
+
     public void append(LinkedList other) {
         if (isEmpty()) {
             head = other.head;
