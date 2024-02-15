@@ -17,7 +17,7 @@ public class LinkedListTester {
         System.out.println("Size: " + linkedList.size());
         System.out.println("########################");
 
-        LinkedList resultList = linkedList.subList(0,3);
+        LinkedList resultList = linkedList.subList(0,4);
         System.out.println(resultList);
         System.out.println("Size: " + resultList.size());
         System.out.println("########################");

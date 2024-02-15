@@ -71,11 +71,7 @@ public class LinkedList {
             return resultList;
         }
 
-        LinkedListNode iterator = head;
-        for (int i = 0; i < from; i++) {
-            iterator = iterator.getNext();
-        }
-
+        LinkedListNode iterator = getNode(from);
         int size = size();
         for (int i = from; i < to && i < size; i++) {
             resultList.add(iterator.getData());
