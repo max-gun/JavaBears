@@ -21,6 +21,5 @@ public class LinkedListTester {
         System.out.println(resultList);
         System.out.println("Size: " + resultList.size());
         System.out.println("########################");
-
     }
 }
