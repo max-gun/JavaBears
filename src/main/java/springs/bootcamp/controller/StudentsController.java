@@ -13,6 +13,10 @@ public class StudentsController {
     @Autowired
     StudentsService studentsService;
 
+    public Integer isStudentExist(String name){
+
+    }
+
     @RequestMapping("/countStudents")
     public Integer getCountStudents(){
         return studentsService.getCountStudents();
