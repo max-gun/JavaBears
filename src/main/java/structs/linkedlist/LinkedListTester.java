@@ -1,6 +1,5 @@
 package structs.linkedlist;
 
-import static structs.linkedlist.LinkedList.merge;
 
 public class LinkedListTester {
 
@@ -17,9 +16,9 @@ public class LinkedListTester {
         System.out.println("Size: " + linkedList.size());
         System.out.println("########################");
 
-        LinkedList resultList = linkedList.subList(0,4);
-        System.out.println(resultList);
-        System.out.println("Size: " + resultList.size());
+        linkedList.mergeSort();
+        System.out.println(linkedList);
+        System.out.println("Size: " + linkedList.size());
         System.out.println("########################");
     }
 }

@@ -58,6 +58,13 @@ public class LinkedList {
                 leftListNode = leftList.pullNode(0);
             }
         }
+
+        if (isNull(leftListNode)) {
+            rightList.add(rightListNode.getData(), 0);
+        } else {
+            leftList.add(leftListNode.getData(), 0);
+        }
+
         mergedList.append(leftList.isEmpty() ? rightList : leftList);
 
         return mergedList;
@@ -260,6 +267,20 @@ public class LinkedList {
             System.out.println(maxNode);
             System.out.println(this);
             System.out.println("Size: " + size());
+        }
+    }
+
+    public void mergeSort() {
+        if (nonNull(head) && nonNull(head.next)) {
+            int size = size();
+            LinkedList leftSubList = subList(0, size / 2);
+            LinkedList rightSubList = subList(size / 2, size);
+
+            leftSubList.mergeSort();
+            rightSubList.mergeSort();
+
+            LinkedList result = merge(leftSubList, rightSubList);
+            this.head = result.head;
         }
     }
 
