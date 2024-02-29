@@ -32,6 +32,6 @@ public class StudentsService {
     }
 
     public List<String> getStudentsNames() {
-        studentRepository.
+        return studentRepository.findAllNames();
     }
 }
