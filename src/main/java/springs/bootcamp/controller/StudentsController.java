@@ -33,4 +33,9 @@ public class StudentsController {
     public List<String> getStudentsNames(){
         return List.of("Gideon","Raz","Olga");
     }
+
+    @RequestMapping("/register")
+    public void registerStudent(String name, Integer avg) {
+
+    }
 }
