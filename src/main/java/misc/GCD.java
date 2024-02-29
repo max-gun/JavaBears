@@ -25,6 +25,8 @@ public class GCD {
         System.out.println(yonatanGCD(100,50));
         System.out.println(auclidicGCD(100,50, 0));
         System.out.println("======================");
+
+        swapNums(12,-2);
     }
 
     public static void swapNums(int a, int b) {
