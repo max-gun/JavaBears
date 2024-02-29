@@ -14,13 +14,13 @@ public class StudentsController {
     @Autowired
     StudentsService studentsService;
 
-    @RequestMapping(value="/isRegistered/{studentName}")
-    public Boolean isStudentExist(@PathVariable("studentName") String name){
-        return studentsService.isExist(name);
+    @RequestMapping(value="/isRegistered/{studentId}")
+    public Boolean isStudentExist(@PathVariable("studentId") Long studentId){
+        return studentsService.isExist(studentId);
     }
 
     @RequestMapping("/countStudents")
-    public Integer getCountStudents(){
+    public Long getCountStudents(){
         return studentsService.getCountStudents();
     }
 

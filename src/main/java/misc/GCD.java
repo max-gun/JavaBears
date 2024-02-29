@@ -27,8 +27,17 @@ public class GCD {
         System.out.println("======================");
     }
 
-    public static int swapNums(int a, int b) {
-        return 0;
+    public static void swapNums(int a, int b) {
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
+        System.out.println("=========");
+
+        a += b;
+        b = a - b;
+        a -= b;
+
+        System.out.println("a: " + a);
+        System.out.println("b: " + b);
     }
 
     public static int auclidicGCD(int num1, int num2, int counter) {

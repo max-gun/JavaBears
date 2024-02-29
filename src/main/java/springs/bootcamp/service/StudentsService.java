@@ -11,17 +11,15 @@ public class StudentsService {
 
     @Autowired
     private StudentRepository studentRepository;
-    private List<String> names = List.of("Karina","Raz","Another Raz","Gideon",
-            "Alexey","Olga","Max","Marina","Ismail", "Denis");
 
     public StudentsService() {
         System.out.println("Service Created");
     }
-    public Integer getCountStudents() {
-        return names.size();
+    public Long getCountStudents() {
+        return studentRepository.count();
     }
 
-    public Boolean isExist(String name) {
-        return names.contains(name);
+    public Boolean isExist(Long studentId) {
+        return studentRepository.existsById(studentId);
     }
 }
