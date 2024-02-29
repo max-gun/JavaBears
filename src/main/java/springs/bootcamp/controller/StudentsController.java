@@ -31,11 +31,11 @@ public class StudentsController {
 
     @RequestMapping("/studentsNames")
     public List<String> getStudentsNames(){
-        return List.of("Gideon","Raz","Olga");
+        return studentsService.getStudentsNames();
     }
 
-    @RequestMapping("/register")
-    public void registerStudent(String name, Integer avg) {
-
+    @RequestMapping("/register/{studentName}/{studentAVG}")
+    public void registerStudent(@PathVariable("studentName") String name, @PathVariable("studentAVG") Integer avg) {
+        studentsService.registerStudent(name, avg);
     }
 }
