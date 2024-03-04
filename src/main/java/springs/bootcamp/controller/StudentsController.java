@@ -43,4 +43,9 @@ public class StudentsController {
     public void registerStudentByPost(@RequestBody Student student){
         studentsService.registerStudent(student);
     }
+
+    @RequestMapping(value="/getstudent/{studentName}")
+    public Student getStudent(@PathVariable("studentName") String name) {
+        return studentsService.getStudent(name);
+    }
 }

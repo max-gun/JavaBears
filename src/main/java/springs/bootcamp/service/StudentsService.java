@@ -19,4 +19,6 @@ public interface StudentsService {
     void registerStudent(Student student);
 
     List<String> getStudentsNames();
+
+    Student getStudent(String name);
 }

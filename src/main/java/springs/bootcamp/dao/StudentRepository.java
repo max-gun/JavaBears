@@ -2,6 +2,7 @@ package springs.bootcamp.dao;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import springs.bootcamp.model.Student;
 
@@ -13,4 +14,7 @@ public interface StudentRepository extends CrudRepository<Student, Long> {
     //SELECT s.student_name FROM mydb.student s
     @Query("SELECT s.studentName FROM Student s")
     List<String> findAllNames();
+
+    @Query("SELECT s FROM Student s WHERE s.studentName=:name")
+    Student findByName(String name);
 }

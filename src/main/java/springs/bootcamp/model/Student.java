@@ -35,6 +35,18 @@ public class Student {
         return avg;
     }
 
+    public void setStudentId(Long studentId) {
+        this.studentId = studentId;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+    }
+
+    public void setAvg(Integer avg) {
+        this.avg = avg;
+    }
+
     @Override
     public String toString() {
         return "Student{" +
