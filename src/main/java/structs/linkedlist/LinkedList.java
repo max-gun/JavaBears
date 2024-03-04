@@ -1,8 +1,7 @@
 package structs.linkedlist;
 
 
-import static java.lang.Math.max;
-import static java.lang.Math.min;
+import static java.lang.Math.*;
 import static java.util.Objects.*;
 
 
@@ -25,6 +24,37 @@ public class LinkedList {
 
     public LinkedList() {
         System.out.println("A linked list was created!!!");
+    }
+
+    /**
+     * After choosing a random pivot, the method partitioning the list into two parts.
+     * On the left side we will have all the smaller values.
+     * On the right side we will have all the greater or equal values.
+     *
+     * Example:
+     * input: {3 , 5, 11, 4, 9}
+     *
+     * choosing pivot = 9
+     * result: {3, 5, 4, 11, 9}
+     */
+    public static LinkedList partition(LinkedList list) {
+        int size = list.size();
+        String pivot = choosePivot(list);
+        System.out.println("PIVOT: " + pivot);
+
+        for (int i = 0; i < size; i++) {
+            if (list.getNode(i).getData().compareTo(pivot) >= 0) {
+                list.add(list.pullNode(i).getData());
+            }
+        }
+
+        return list;
+    }
+
+    private static String choosePivot(LinkedList list) {
+        int rnd = (int) (random()*list.size());
+        String pivot = list.getNode(rnd).getData();
+        return pivot;
     }
 
     /**

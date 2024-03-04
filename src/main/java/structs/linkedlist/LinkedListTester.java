@@ -16,7 +16,7 @@ public class LinkedListTester {
         System.out.println("Size: " + linkedList.size());
         System.out.println("########################");
 
-        linkedList.mergeSort();
+        LinkedList.partition(linkedList);
         System.out.println(linkedList);
         System.out.println("Size: " + linkedList.size());
         System.out.println("########################");
