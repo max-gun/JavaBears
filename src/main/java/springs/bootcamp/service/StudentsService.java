@@ -1,37 +1,22 @@
 package springs.bootcamp.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import springs.bootcamp.dao.StudentRepository;
 import springs.bootcamp.model.Student;
 
 import java.util.List;
 
+/**
+ * @author max.gun
+ * @since 04/03/2024
+ */
+public interface StudentsService {
 
-@Service
-public class StudentsService {
+    Long getCountStudents();
 
-    @Autowired
-    private StudentRepository studentRepository;
+    Boolean isExist(Long studentId);
 
-    public StudentsService() {
-        System.out.println("Service Created");
-    }
+    void registerStudent(String studentName, Integer avg);
 
-    public Long getCountStudents() {
-        return studentRepository.count();
-    }
+    void registerStudent(Student student);
 
-    public Boolean isExist(Long studentId) {
-        return studentRepository.existsById(studentId);
-    }
-
-    public void registerStudent(String studentName, Integer avg) {
-        Student student = new Student(studentName, avg);
-        studentRepository.save(student);
-    }
-
-    public List<String> getStudentsNames() {
-        return studentRepository.findAllNames();
-    }
+    List<String> getStudentsNames();
 }

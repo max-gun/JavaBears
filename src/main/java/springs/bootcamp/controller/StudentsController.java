@@ -1,10 +1,10 @@
 package springs.bootcamp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import springs.bootcamp.model.Student;
 import springs.bootcamp.service.StudentsService;
+import springs.bootcamp.service.impl.StudentsServiceImpl;
 
 import java.util.List;
 
@@ -37,5 +37,10 @@ public class StudentsController {
     @RequestMapping("/register/{studentName}/{studentAVG}")
     public void registerStudent(@PathVariable("studentName") String name, @PathVariable("studentAVG") Integer avg) {
         studentsService.registerStudent(name, avg);
+    }
+
+    @RequestMapping(method = RequestMethod.POST,value = "/register")
+    public void registerStudentByPost(@RequestBody Student student){
+        studentsService.registerStudent(student);
     }
 }
