@@ -43,8 +43,8 @@ public class LinkedList {
         System.out.println("PIVOT: " + pivot);
 
         for (int i = 0; i < size; i++) {
-            if (list.getNode(i).getData().compareTo(pivot) >= 0) {
-                list.add(list.pullNode(i).getData());
+            if (list.getNode(i).getData().compareTo(pivot) < 0) {
+                list.add(list.pullNode(i).getData(), 0);
             }
         }
 
