@@ -1,58 +1,57 @@
 package springs.bootcamp.model;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "students")
 public class Student {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long studentId;
+
+    @Column(name = "student_full_name", nullable = false, length = 100)
     private String studentName;
-    private Integer avg;
+
+    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
+    private Grades grades;
 
     public Student() {
+        grades = new Grades();
     }
 
-    public Student(String studentName, Integer avg) {
+    public Student(String studentName) {
         this.studentName = studentName;
-        this.avg = avg;
+        grades = new Grades();
     }
 
-    public Long getStudentId() {
-        return studentId;
+    public Student(String studentName, Grades grades) {
+        this.studentName = studentName;
+        this.grades = grades;
     }
 
     public String getStudentName() {
         return studentName;
     }
 
-    public Integer getAvg() {
-        return avg;
-    }
-
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
-    }
-
     public void setStudentName(String studentName) {
         this.studentName = studentName;
     }
 
-    public void setAvg(Integer avg) {
-        this.avg = avg;
+    public Grades getGrades() {
+        return grades;
+    }
+
+    public void setGrades(Grades grades) {
+        this.grades = grades;
     }
 
     @Override
     public String toString() {
         return "Student{" +
-                "studentId=" + studentId +
-                ", studentName='" + studentName + '\'' +
-                ", avg=" + avg +
+                "studentName='" + studentName + '\'' +
+                ", grades=" + grades +
                 '}';
     }
 }

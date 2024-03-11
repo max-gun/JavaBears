@@ -34,9 +34,12 @@ public class StudentsController {
         return studentsService.getStudentsNames();
     }
 
-    @RequestMapping("/register/{studentName}/{studentAVG}")
-    public void registerStudent(@PathVariable("studentName") String name, @PathVariable("studentAVG") Integer avg) {
-        studentsService.registerStudent(name, avg);
+    @RequestMapping("/register/{studentName}/{math}/{eng}/{cs}")
+    public void registerStudent(@PathVariable("studentName") String name,
+                                @PathVariable("math") Integer math,
+                                @PathVariable("eng") Integer eng,
+                                @PathVariable("cs") Integer cs) {
+        studentsService.registerStudent(name, math, eng, cs);
     }
 
     @RequestMapping(method = RequestMethod.POST,value = "/register")

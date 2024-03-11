@@ -14,7 +14,7 @@ public interface StudentsService {
 
     Boolean isExist(Long studentId);
 
-    void registerStudent(String studentName, Integer avg);
+    void registerStudent(String studentName, Integer math, Integer english, Integer cs);
 
     void registerStudent(Student student);
 

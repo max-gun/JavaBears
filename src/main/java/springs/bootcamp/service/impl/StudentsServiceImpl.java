@@ -3,6 +3,7 @@ package springs.bootcamp.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import springs.bootcamp.dao.StudentRepository;
+import springs.bootcamp.model.Grades;
 import springs.bootcamp.model.Student;
 import springs.bootcamp.service.StudentsService;
 
@@ -30,8 +31,11 @@ public class StudentsServiceImpl implements StudentsService {
     }
 
     @Override
-    public void registerStudent(String studentName, Integer avg) {
-        Student student = new Student(studentName, avg);
+    public void registerStudent(String studentName, Integer math, Integer english, Integer cs) {
+        Grades grades = new Grades(math, english, cs);
+        Student student = new Student(studentName, grades);
+        grades.setStudent(student);
+
         studentRepository.save(student);
     }
 
