@@ -2,9 +2,8 @@ package springs.bootcamp.dao;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import springs.bootcamp.model.Student;
+import springs.bootcamp.model.entities.Student;
 
 import java.util.List;
 

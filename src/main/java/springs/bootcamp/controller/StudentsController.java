@@ -2,9 +2,10 @@ package springs.bootcamp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import springs.bootcamp.model.Student;
+import springs.bootcamp.model.dto.UpdateGradesSheetRequest;
+import springs.bootcamp.model.entities.Grades;
+import springs.bootcamp.model.entities.Student;
 import springs.bootcamp.service.StudentsService;
-import springs.bootcamp.service.impl.StudentsServiceImpl;
 
 import java.util.List;
 
@@ -45,6 +46,11 @@ public class StudentsController {
     @RequestMapping(method = RequestMethod.POST,value = "/register")
     public void registerStudentByPost(@RequestBody Student student){
         studentsService.registerStudent(student);
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/updateGradesSheet")
+    public void updateGradesSheet(@RequestBody UpdateGradesSheetRequest updateGradesSheetRequest) {
+        studentsService.updateGradesSheet(updateGradesSheetRequest);
     }
 
     @RequestMapping(value="/getstudent/{studentName}")

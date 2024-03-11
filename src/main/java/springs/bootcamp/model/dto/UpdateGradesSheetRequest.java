@@ -1,38 +1,24 @@
-package springs.bootcamp.model;
+package springs.bootcamp.model.dto;
 
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "grades")
-public class Grades {
-
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
-
-    @Column(name = "math_grade")
+public class UpdateGradesSheetRequest {
+    private String studentName;
     private Integer mathGrade;
-
-    @Column(name = "english_grade")
     private Integer englishGrade;
-
-    @Column(name = "computer_science_grade")
     private Integer computerScienceGrade;
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "student_id", nullable = false)
-    private Student student;
-
-    public Grades() {
-        this.mathGrade = 0;
-        this.englishGrade = 0;
-        this.computerScienceGrade = 0;
-    }
-
-    public Grades(Integer mathGrade, Integer englishGrade, Integer computerScienceGrade) {
+    public UpdateGradesSheetRequest(String studentName, Integer mathGrade, Integer englishGrade, Integer computerScienceGrade) {
+        this.studentName = studentName;
         this.mathGrade = mathGrade;
         this.englishGrade = englishGrade;
         this.computerScienceGrade = computerScienceGrade;
+    }
+
+    public String getStudentName() {
+        return studentName;
+    }
+
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
     public Integer getMathGrade() {
@@ -59,18 +45,10 @@ public class Grades {
         this.computerScienceGrade = computerScienceGrade;
     }
 
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
-    }
-
     @Override
     public String toString() {
-        return "Grades{" +
-                "gradesId=" + id +
+        return "UpdateGradesSheetRequest{" +
+                "studentName='" + studentName + '\'' +
                 ", mathGrade=" + mathGrade +
                 ", englishGrade=" + englishGrade +
                 ", computerScienceGrade=" + computerScienceGrade +

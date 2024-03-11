@@ -1,6 +1,8 @@
 package springs.bootcamp.service;
 
-import springs.bootcamp.model.Student;
+import springs.bootcamp.model.dto.UpdateGradesSheetRequest;
+import springs.bootcamp.model.entities.Grades;
+import springs.bootcamp.model.entities.Student;
 
 import java.util.List;
 
@@ -21,4 +23,6 @@ public interface StudentsService {
     List<String> getStudentsNames();
 
     Student getStudent(String name);
+
+    void updateGradesSheet(UpdateGradesSheetRequest updateGradesSheetRequest);
 }

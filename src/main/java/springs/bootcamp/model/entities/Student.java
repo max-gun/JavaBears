@@ -1,7 +1,8 @@
-package springs.bootcamp.model;
+package springs.bootcamp.model.entities;
 
 
 import jakarta.persistence.*;
+import springs.bootcamp.model.entities.Grades;
 
 @Entity
 @Table(name = "students")
@@ -14,7 +15,8 @@ public class Student {
     @Column(name = "student_full_name", nullable = false, length = 100)
     private String studentName;
 
-    @OneToOne(mappedBy = "student", cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "grades_id")
     private Grades grades;
 
     public Student() {
@@ -29,6 +31,10 @@ public class Student {
     public Student(String studentName, Grades grades) {
         this.studentName = studentName;
         this.grades = grades;
+    }
+
+    public Long getStudentId() {
+        return studentId;
     }
 
     public String getStudentName() {
