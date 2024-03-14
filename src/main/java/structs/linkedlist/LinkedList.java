@@ -1,6 +1,8 @@
 package structs.linkedlist;
 
 
+import java.util.Random;
+
 import static java.lang.Math.*;
 import static java.util.Objects.*;
 
@@ -26,6 +28,21 @@ public class LinkedList {
         System.out.println("A linked list was created!!!");
     }
 
+    public void quickSort() {
+        quickSort(0, size());
+    }
+
+    private void quickSort(int smallIndex, int bigIndex) {
+        int pivot = partition(smallIndex, bigIndex);
+
+        if (pivot >= 0) {
+            System.out.println("pivot: " + pivot);
+            System.out.println(print());
+            quickSort(smallIndex, pivot);
+            quickSort(pivot + 1, bigIndex);
+        }
+    }
+
     /**
      * After choosing a random pivot, the method partitioning the list into two parts.
      * On the left side we will have all the smaller values.
@@ -37,24 +54,28 @@ public class LinkedList {
      * choosing pivot = 9
      * result: {3, 5, 4, 11, 9}
      */
-    public static LinkedList partition(LinkedList list) {
-        int size = list.size();
-        String pivot = choosePivot(list);
-        System.out.println("PIVOT: " + pivot);
+    public int partition(int smallIndex, int bigIndex) {
+        if (smallIndex < bigIndex) {
+            int pivot = choosePivot(smallIndex, bigIndex);
+            String pivotValue = getNode(pivot).getData();
 
-        for (int i = 0; i < size; i++) {
-            if (list.getNode(i).getData().compareTo(pivot) < 0) {
-                list.add(list.pullNode(i).getData(), 0);
+            System.out.println("pivot value: " + pivotValue);
+
+            for (int i = smallIndex; i < bigIndex; i++) {
+                if (getNode(i).getData().compareTo(pivotValue) < 0) {
+                    add(pullNode(i).getData(), smallIndex);
+                    if (i > pivot) {
+                        pivot++;
+                    }
+                }
             }
+            return pivot;
         }
-
-        return list;
+        return -1;
     }
 
-    private static String choosePivot(LinkedList list) {
-        int rnd = (int) (random()*list.size());
-        String pivot = list.getNode(rnd).getData();
-        return pivot;
+    private int choosePivot(int smallIndex, int bigIndex) {
+        return new Random().nextInt(smallIndex, bigIndex);
     }
 
     /**

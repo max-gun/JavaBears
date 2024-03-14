@@ -11,12 +11,18 @@ public class LinkedListTester {
         linkedList.add("Doron");
         linkedList.add("Karina");
         linkedList.add("Raz");
+        linkedList.add("Baha");
+        linkedList.add("Yonatan");
+        linkedList.add("Moran");
+        linkedList.add("Marina");
+        linkedList.add("Violeta");
+        linkedList.add("Alexey");
 
         System.out.println(linkedList);
         System.out.println("Size: " + linkedList.size());
         System.out.println("########################");
 
-        LinkedList.partition(linkedList);
+        linkedList.quickSort();
         System.out.println(linkedList);
         System.out.println("Size: " + linkedList.size());
         System.out.println("########################");
