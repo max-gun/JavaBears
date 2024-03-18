@@ -41,6 +41,20 @@ selectorsLoader = async function() {
     subjectsNamesSelectorLoader();
 }
 
+getStatsForSubject = async function() {
+    const dropdown = document.getElementById('subjects_dropdown');
+    var result = await fetch('http://localhost:8080/getSubjectStats/dropdown.value');
+    var stats = await result.json();
+
+    document.getElementById('avg_input').value = stats.avg;
+
+    var div = document.getElementById('result_box');
+    Object.keys(stats.studentsGrades).forEach( key => {
+       div.innerHTML += '<p>' + key + ':' + stats.studentsGrades[key] + '<p>';
+    });
+}
+
 document.addEventListener('DOMContentLoaded', selectorsLoader);
 
 document.getElementById('my_btn').addEventListener('click', alertOnClick);
+document.getElementById('stats_btn').addEventListener('click', getStatsForSubject);
