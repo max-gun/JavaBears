@@ -10,7 +10,7 @@ public class ProductMapper {
         Product product = new Product(npr.getProductName(),
                 npr.getPrice(),
                 npr.getDescription(),
-                Sensitivity.valueOf(npr.getSensitivities()));
+                Sensitivity.valueOf(npr.getSensitivities().toUpperCase()));
         return product;
     }
 }

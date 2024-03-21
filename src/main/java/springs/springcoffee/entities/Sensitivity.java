@@ -6,5 +6,8 @@ public enum Sensitivity {
     NUTS,
     SUGAR,
     CELERY,
-    CILANTRO
+    CILANTRO,
+    DAIRY;
+
+    private String name;
 }

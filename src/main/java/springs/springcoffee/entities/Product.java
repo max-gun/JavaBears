@@ -19,6 +19,7 @@ public class Product {
     @Column(name = "description", length = 100)
     private String desc;
 
+    @Enumerated(EnumType.STRING)
     private Sensitivity sensitivities;
 
     public Product() {
