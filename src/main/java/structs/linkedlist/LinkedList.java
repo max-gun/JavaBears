@@ -62,7 +62,7 @@ public class LinkedList {
             System.out.println("pivot value: " + pivotValue);
 
             for (int i = smallIndex; i < bigIndex; i++) {
-                if (getNode(i).getData().compareTo(pivotValue) < 0) {
+                if (getNode(i).getData().compareTo(pivotValue) <= 0) {
                     add(pullNode(i).getData(), smallIndex);
                     if (i > pivot) {
                         pivot++;
