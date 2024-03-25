@@ -22,6 +22,8 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private Sensitivity sensitivities;
 
+    private Integer supply;
+
     public Product() {
     }
 
@@ -68,6 +70,14 @@ public class Product {
         this.sensitivities = sensitivities;
     }
 
+    public Integer getSupply() {
+        return supply;
+    }
+
+    public void setSupply(Integer supply) {
+        this.supply = supply;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -75,7 +85,8 @@ public class Product {
                 ", productName='" + productName + '\'' +
                 ", price=" + price +
                 ", desc='" + desc + '\'' +
-                ", sensitivities='" + sensitivities + '\'' +
+                ", sensitivities=" + sensitivities +
+                ", supply=" + supply +
                 '}';
     }
 }

@@ -3,6 +3,7 @@ package springs.springcoffee.mapper;
 import springs.springcoffee.dto.NewProductRequest;
 import springs.springcoffee.entities.Product;
 import springs.springcoffee.entities.Sensitivity;
+import springs.springcoffee.service.ProductService;
 
 public class ProductMapper {
 
