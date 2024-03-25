@@ -6,7 +6,9 @@ import springs.springcoffee.dao.ProductRepository;
 import springs.springcoffee.entities.Product;
 import springs.springcoffee.service.InventoryService;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static java.util.stream.Collectors.toList;
@@ -21,6 +23,20 @@ public class InventoryServiceImpl implements InventoryService {
     public Integer getAmountOfProduct(String productName) {
         Integer supplyOfProduct = productRepository.getSupplyOfProduct(productName);
         return supplyOfProduct;
+    }
+
+    @Override
+    public Map<String, Integer> getFullInventory() {
+        List<Object[]> queryResult = productRepository.getFullInventory();
+        Map<String, Integer> inventory = new HashMap<>();
+
+        queryResult.forEach(obj -> {
+            String productName = (String) obj[0];
+            Integer productAmount = (Integer) obj[1];
+            inventory.put(productName, productAmount);
+        });
+
+        return inventory;
     }
 
     //@Override

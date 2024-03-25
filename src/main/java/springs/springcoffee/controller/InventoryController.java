@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import springs.springcoffee.service.InventoryService;
 
+import java.util.Map;
+
 @RestController
 public class InventoryController {
 
@@ -16,5 +18,11 @@ public class InventoryController {
     public Integer getStockAmount(@PathVariable("productName") String productName) {
         Integer amount = inventoryService.getAmountOfProduct(productName);
         return amount;
+    }
+
+    @RequestMapping("/getInventory")
+    public Map<String, Integer> getFullInventory() {
+        Map<String,Integer> inventory = inventoryService.getFullInventory();
+        return inventory;
     }
 }
