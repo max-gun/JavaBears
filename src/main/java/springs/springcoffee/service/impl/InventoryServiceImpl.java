@@ -28,13 +28,20 @@ public class InventoryServiceImpl implements InventoryService {
     @Override
     public Map<String, Integer> getFullInventory() {
         List<Object[]> queryResult = productRepository.getFullInventory();
-        Map<String, Integer> inventory = new HashMap<>();
+
+        /*Map<String, Integer> inventory = new HashMap<>();
 
         queryResult.forEach(obj -> {
             String productName = (String) obj[0];
             Integer productAmount = (Integer) obj[1];
             inventory.put(productName, productAmount);
-        });
+        });*/
+
+        Map<String, Integer> inventory = queryResult.stream()
+                .collect(Collectors.toMap(
+                        arr -> (String) arr[0],
+                        arr -> (Integer) arr[1]
+                ));
 
         return inventory;
     }
