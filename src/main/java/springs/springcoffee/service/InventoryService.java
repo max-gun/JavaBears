@@ -1,5 +1,7 @@
 package springs.springcoffee.service;
 
+import springs.springcoffee.dto.AddSupplyRequest;
+
 import java.util.Map;
 
 public interface InventoryService {
@@ -7,5 +9,5 @@ public interface InventoryService {
 
     Map<String, Integer> getFullInventory();
 
-    //Integer getAmountOfProductV2(String productName);
+    void addSupply(AddSupplyRequest addSupplyRequest);
 }

@@ -20,6 +20,5 @@ public interface ProductRepository  extends CrudRepository<Product, Long> {
     @Query("SELECT p.productName, p.supply FROM Product p")
     List<Object[]> getFullInventory();
 
-    //@Query("SELECT * FROM Product p WHERE p.productName =:productName")
-    //List<Product> findByName(String productName);
+    Product findByProductName(String productName);
 }

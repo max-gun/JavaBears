@@ -3,15 +3,13 @@ package springs.springcoffee.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import springs.springcoffee.dao.ProductRepository;
+import springs.springcoffee.dto.AddSupplyRequest;
 import springs.springcoffee.entities.Product;
 import springs.springcoffee.service.InventoryService;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
-import static java.util.stream.Collectors.toList;
 
 @Service
 public class InventoryServiceImpl implements InventoryService {
@@ -46,21 +44,15 @@ public class InventoryServiceImpl implements InventoryService {
         return inventory;
     }
 
-    //@Override
-    public Integer getAmountOfProductV2(String productName) {
-        /*
-        List<Product> products = productRepository.findAll();
-        Product product = products.stream()
-                .filter(p -> p.getProductName().equals(productName))
-                .toList()
-                .get(0);
+    @Override
+    public void addSupply(AddSupplyRequest addSupplyRequest) {
+        String productName = addSupplyRequest.getProductName();
+        Integer supplyAmount = addSupplyRequest.getSupplyAmount();
 
+        Product product = productRepository.findByProductName(productName);
+        Integer newSupply = product.getSupply() + supplyAmount;
+        product.setSupply(newSupply);
 
-        Product product = productRepository.findByName(productName).get(0);
-        Integer supplyOfProduct =  product.getSupply();
-        return supplyOfProduct;
-
-         */
-        return null;
+        productRepository.save(product);
     }
 }
