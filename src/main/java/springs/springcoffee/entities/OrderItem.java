@@ -25,4 +25,61 @@ public class OrderItem {
     private Integer amount;
 
     private Integer priceSum;
+
+    public OrderItem() {
+    }
+
+    public OrderItem(Order order, Product product, Integer amount, Integer priceSum) {
+        this.order = order;
+        this.product = product;
+        this.amount = amount;
+        this.priceSum = priceSum;
+    }
+
+    public Long getOrderItemId() {
+        return orderItemId;
+    }
+
+    public Order getOrder() {
+        return order;
+    }
+
+    public void setOrder(Order order) {
+        this.order = order;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public Integer getAmount() {
+        return amount;
+    }
+
+    public void setAmount(Integer amount) {
+        this.amount = amount;
+    }
+
+    public Integer getPriceSum() {
+        return priceSum;
+    }
+
+    public void setPriceSum(Integer priceSum) {
+        this.priceSum = priceSum;
+    }
+
+    @Override
+    public String toString() {
+        return "OrderItem{" +
+                "orderItemId=" + orderItemId +
+                ", order=" + order +
+                ", product=" + product +
+                ", amount=" + amount +
+                ", priceSum=" + priceSum +
+                '}';
+    }
 }
