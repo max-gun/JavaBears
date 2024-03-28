@@ -10,7 +10,7 @@ import java.util.List;
  * @since 28/03/2024
  */
 @Entity
-@Table(name = "order")
+@Table(name = "order_receipt")
 public class Order {
 
     @Id
@@ -21,6 +21,8 @@ public class Order {
     private List<OrderItem> items;
 
     private Integer totalSum;
+
+    private Integer discount;
 
     private Date orderDate;
 }
