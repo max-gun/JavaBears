@@ -39,7 +39,7 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public void addItemToOrder(AddItemRequest addItemRequest) {
         Order order = orderRepository.findById(addItemRequest.getOrderId()).orElse(null);
-        if (nonNull(order)) {
+        if (nonNull(order) && !order.isClosed()) {
             if (order.getItems() == null) {
                 order.setItems(new ArrayList<>());
             }

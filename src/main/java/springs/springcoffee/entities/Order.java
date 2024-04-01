@@ -78,12 +78,12 @@ public class Order {
         this.orderDate = orderDate;
     }
 
-    public Boolean getClosed() {
+    public Boolean isClosed() {
         return isClosed;
     }
 
-    public void setClosed(Boolean closed) {
-        isClosed = closed;
+    public void close() {
+        isClosed = true;
     }
 
     @Override
