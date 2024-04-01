@@ -29,4 +29,12 @@ public class OrderController {
         orderService.addItemToOrder(addItemRequest);
         return true;
     }
+
+    public Boolean closeOrder(){
+        return true;
+    }
+
+    public Boolean editOrder() {
+        return true;
+    }
 }
